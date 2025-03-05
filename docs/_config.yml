@@ -1,6 +1,6 @@
 title: Character Introduction
 description: A simple self-introduction page with interactive cards
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/my_sandbox_march_2025" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol
 markdown: kramdown
 
