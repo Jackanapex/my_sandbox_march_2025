@@ -1,0 +1,14 @@
+title: Character Introduction
+description: A simple self-introduction page with interactive cards
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol
+markdown: kramdown
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+sass:
+  sass_dir: _sass
+  style: compressed
