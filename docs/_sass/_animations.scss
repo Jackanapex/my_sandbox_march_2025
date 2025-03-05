@@ -48,3 +48,15 @@
 .card.hover .pixel-effect {
   opacity: 0.3;
 }
+
+/* Adding cursor-aware tilt effect */
+.card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s ease;
+}
+
+.card.hover {
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
