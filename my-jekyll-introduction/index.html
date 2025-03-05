@@ -8,7 +8,7 @@ title: Self Introduction
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/my_sandbox_march_2025/assets/css/styles.scss">
+    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -24,6 +24,6 @@ title: Self Introduction
     </main>
 
     {% include footer.html %}
-    <script src="/my_sandbox_march_2025/assets/js/animations.js"></script>
+    <script src="{{ "/assets/js/animations.js" | relative_url }}"></script>
 </body>
 </html>
