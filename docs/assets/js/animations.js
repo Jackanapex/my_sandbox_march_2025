@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Get position of mouse relative to card
                 const cardRect = card.getBoundingClientRect();
                 const cardCenterX = cardRect.left + cardRect.width / 2;
-                const cardCenterY = cardRect.bottom + cardRect.height / 2;
+                const cardCenterY = cardRect.top + cardRect.height / 2;
                 
                 // Calculate rotation based on mouse position
                 const mouseX = e.clientX;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Occasionally create particles when moving
                 if (Math.random() < 0.1) {
-                    createParticleAtPosition(card, mouseX - cardRect.left, mouseY - cardRect.bottom);
+                    createParticleAtPosition(card, mouseX - cardRect.left, mouseY - cardRect.top);
                 }
             }
         });
