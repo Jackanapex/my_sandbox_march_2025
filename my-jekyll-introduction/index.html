@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Introduction</title>
+    <link rel="stylesheet" href="/my_sandbox_march_2025/assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include header.html %}
+
+    <main>
+        <h1>Welcome to My Introduction Page</h1>
+        <div class="cards-container">
+            {% for character in site.data.characters %}
+                {% include card.html character=character %}
+            {% endfor %}
+        </div>
+    </main>
+
+    {% include footer.html %}
+    <script src="/my_sandbox_march_2025/assets/js/animations.js"></script>
+</body>
+</html>
