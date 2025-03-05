@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Get position of mouse relative to card
                 const cardRect = card.getBoundingClientRect();
                 const cardCenterX = cardRect.left + cardRect.width / 2;
-                const cardCenterY = cardRect.top + cardRect.height / 2;
+                const cardCenterY = cardRect.top - 5 + cardRect.height / 2;
                 
                 // Calculate rotation based on mouse position
                 const mouseX = e.clientX;
@@ -41,12 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const percentY = (mouseY - cardCenterY) / (cardRect.height / 2);
                 
                 // Limit tilt effect (maximum 15 degrees)
-                const tiltLimitX = 15;
-                const tiltLimitY = 10;
+                const tiltLimitX = 20;
+                const tiltLimitY = 20;
                 
                 // Apply transform - rotate in opposite direction of mouse position
                 card.style.transform = `
-                    translateY(-10px)
+                    translateY(-5px)
                     rotateX(${percentY * tiltLimitY}deg)
                     rotateY(${percentX * tiltLimitX}deg)
                 `;
