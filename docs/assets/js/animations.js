@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Apply transform - rotate in opposite direction of mouse position
                 card.style.transform = `
                     translateY(-10px)
-                    rotateX(${-percentY * tiltLimitY}deg)
+                    rotateX(${percentY * tiltLimitY}deg)
                     rotateY(${percentX * tiltLimitX}deg)
                 `;
                 
                 // Occasionally create particles when moving
                 if (Math.random() < 0.1) {
-                    createParticleAtPosition(card, mouseX - cardRect.left, mouseY - cardRect.top);
+                    createParticleAtPosition(card, mouseX - cardRect.left, mouseY - cardRect.bottom);
                 }
             }
         });
