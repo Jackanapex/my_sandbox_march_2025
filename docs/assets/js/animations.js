@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Apply transform - rotate in opposite direction of mouse position
                 card.style.transform = `
                     translateY(-5px)
-                    rotateX(${percentY * tiltLimitY}deg)
+                    rotateX(${-percentY * tiltLimitY}deg)
                     rotateY(${percentX * tiltLimitX}deg)
                 `;
                 
