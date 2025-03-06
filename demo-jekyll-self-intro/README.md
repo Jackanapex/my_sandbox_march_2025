@@ -18,6 +18,8 @@ The project is organized as follows:
 
 ## Setup Instructions
 
+### Option 1: Local Jekyll Installation
+
 1. **Install Jekyll**: Make sure you have Jekyll installed on your machine. You can install it using the following command:
 
    ```
