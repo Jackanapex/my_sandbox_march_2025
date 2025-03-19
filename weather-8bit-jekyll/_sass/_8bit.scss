@@ -1,0 +1,41 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  image-rendering: pixelated;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 1px 1px 0 white, 2px 2px 0 black;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dotted white;
+}
+
+a:hover {
+  color: gray;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.weather-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.animated-background {
+  animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}

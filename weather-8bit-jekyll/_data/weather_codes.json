@@ -1,0 +1,17 @@
+{
+  "200": "Clear sky",
+  "201": "Partly cloudy",
+  "202": "Overcast",
+  "210": "Light rain",
+  "211": "Moderate rain",
+  "212": "Heavy rain",
+  "221": "Showers",
+  "230": "Snow flurries",
+  "231": "Light snow",
+  "232": "Heavy snow",
+  "300": "Fog",
+  "301": "Mist",
+  "500": "Thunderstorm",
+  "501": "Tornado",
+  "511": "Hurricane"
+}

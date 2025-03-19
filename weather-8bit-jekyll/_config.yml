@@ -1,0 +1,15 @@
+title: Weather 8-Bit Jekyll
+description: A single web page styled in black and white 8-bit, featuring an animated background reflecting the current weather in Boronia.
+baseurl: "/weather-8bit-jekyll" # the subpath of your site, e.g. /blog
+url: ""
+author:
+  name: "Jack Wang"
+  email: "zhutian.wangchn@gmail.com"
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+sass:
+  sass_dir: _sass
+  style: compressed

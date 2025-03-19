@@ -1,0 +1,733 @@
+@import "base";
+@import "layout";
+@import "8bit"; 
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+// Base styles
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  text-rendering: pixelated;
+  image-rendering: pixelated;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px #000;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid #fff;
+
+  &:hover {
+    border-bottom: 2px solid #ccc;
+  }
+}
+
+// Site header & footer
+.site-header, .site-footer {
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.site-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.site-description {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+.site-footer {
+  font-size: 0.7rem;
+  margin-top: 3rem;
+}
+
+// Weather info
+#weather-info {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #fff;
+  padding: 1rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 5px 5px 0 #fff;
+  
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+// Weather animation container
+#weather-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+// Weather-specific animations
+// Rain
+.raindrop {
+  position: absolute;
+  top: -20px;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  to { transform: translateY(100vh); }
+}
+
+// Snow
+.snowflake {
+  position: absolute;
+  top: -10px;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  animation: snow linear infinite;
+}
+
+@keyframes snow {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+// Lightning
+.lightning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  animation: lightning 7s infinite;
+}
+
+@keyframes lightning {
+  0%, 95%, 98% { background-color: transparent; }
+  96%, 99% { background-color: #fff; }
+}
+
+// Clouds
+.cloud {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background-color: #888;
+  opacity: 0.7;
+  animation: cloud linear infinite;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #888;
+    border-radius: 50%;
+    box-shadow: 20px 0 0 10px #888, 50px 0 0 20px #888;
+  }
+}
+
+@keyframes cloud {
+  0% { transform: translateX(-150px); }
+  100% { transform: translateX(100vw); }
+}
+
+// Sun or Moon
+.sun {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 20px #fff;
+  animation: pulse 3s infinite alternate;
+}
+
+.moon {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ddd;
+  animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+// Fog
+.fog-layer {
+  position: absolute;
+  width: 200%;
+  height: 40px;
+  background: repeating-linear-gradient(
+    to right,
+    #fff 0%,
+    transparent 5%,
+    #fff 10%
+  );
+  opacity: 0.2;
+  animation: fog linear infinite;
+}
+
+@keyframes fog {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+// Clear
+.clear {
+  background-color: #001;
+}
+
+// Cloudy
+.cloudy {
+  background-color: #334;
+}
+
+// Rain
+.rain {
+  background-color: #223;
+}
+
+// Snow
+.snow {
+  background-color: #334;
+}
+
+// Thunderstorm
+.thunderstorm {
+  background-color: #112;
+}
+
+// Fog
+.fog {
+  background-color: #333;
+}
+
+// Drizzle
+.drizzle {
+  background-color: #334;
+}
+
+// Default
+.default {
+  background-color: #222;
+}
+
+// 8-bit style pixelated elements
+.pixel-border {
+  border-style: solid;
+  border-width: 4px;
+  border-color: #fff;
+  box-shadow: 4px 4px 0 #000;
+}
+
+// Enhanced celestial bodies (sun & moon)
+.celestial-container {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 4s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  // Sun styling
+  .sun {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background-color: white;
+    box-shadow: 0 0 10px white;
+    image-rendering: pixelated;
+    animation: pulse 2s infinite alternate;
+  }
+  
+  // More pronounced pulsing animation
+  @keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.0); opacity: 1; }
+  }
+  
+  // Sun rays in 8-bit style
+  .sun-ray {
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    background-color: white;
+    top: calc(50% - 3px);
+    left: calc(100% + 10px);
+    animation: rayPulse 3s infinite ease-in-out;
+  }
+  
+  @keyframes rayPulse {
+    0%, 100% { opacity: 0.5; width: 15px; }
+    50% { opacity: 1; width: 25px; }
+  }
+  
+  // Moon with better 8-bit styling
+  .moon {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    background-color: #DDDDDD;
+    border-radius: 0; // Square for 8-bit look
+    box-shadow: 0 0 6px #AAAAAA;
+    animation: moonGlow 4s infinite alternate;
+  }
+  
+  @keyframes moonGlow {
+    0% { box-shadow: 0 0 8px #AAAAAA; }
+    100% { box-shadow: 0 0 16px white; }
+  }
+  
+  .moon-crater {
+    position: absolute;
+    background-color: #AAAAAA;
+    border-radius: 0; // Square craters for 8-bit look
+  }
+  
+  // Stars in night sky
+  .star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    animation: twinkle 2s infinite alternate;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+  
+  // Different star sizes for variety
+  .star:nth-child(3n) {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .star:nth-child(5n) {
+    animation-duration: 3s;
+  }
+
+// Cat Clock Styles - Nyan Cat style
+#cat-clock-container {
+  width: 300px;
+  height: 200px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.cat-outline {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+// Cat Body - main rectangular shape
+.cat-body {
+  width: 200px;
+  height: 130px;
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 15px;
+  position: relative;
+  margin: 40px auto 0;
+}
+
+// Cat Head - moved to left side for side view
+.cat-head {
+  width: 87px;
+  height: 55px;
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 15px;
+  position: absolute;
+  top: 70px;
+  left: -35px;
+  z-index: 2;
+}
+
+// Cat Ears - triangular shape on top of head
+.cat-ear {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  position: absolute;
+  border-style: solid;
+}
+
+.cat-ear.left {
+  top: -30px;
+  left: 5px;
+  border-width: 0 15px 25px 15px;
+  border-color: transparent transparent white transparent;
+  z-index: 1;
+}
+
+.cat-ear.right {
+  top: -30px;
+  left: 55px;
+  border-width: 0 15px 25px 15px;
+  border-color: transparent transparent white transparent;
+  z-index: 1;
+}
+
+// Cat ear borders (to create the black outline)
+.cat-ear.left:after, .cat-ear.right:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -18px;
+  border-width: 0 18px 28px 18px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+  z-index: -1;
+}
+
+// Cat Face
+.cat-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// Cat Eyes - rounder and more expressive
+.cat-eye {
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  position: absolute;
+  border-radius: 8px; // Keep squared for 8-bit look
+}
+
+.cat-eye.left {
+  top: 20px;
+  left: 10px;
+}
+
+.cat-eye.right {
+  top: 19px;
+  left: 60px;
+}
+
+// Cat Nose - small triangle
+.cat-nose {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  
+  // Create triangle with borders
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid black;
+  border-radius: 5px;
+  
+  // This removes the background and uses only the border to create the triangle
+  background: none;
+}
+
+// Cat Mouth - horizontal line with three vertical lines
+.cat-mouth {
+  position: absolute;
+  top: 40px;
+  left: 25px;
+  width: 40px;
+  height: 15px;
+  
+  // Create the horizontal line
+  &:before {
+    content: '';
+    position: absolute;
+    width: 52px;
+    height: 3px;
+    background-color: black;
+    bottom: 1px;
+    left: -5px;
+  }
+  
+  // Middle vertical line
+  &:after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    background-color: black;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// Left vertical line
+.cat-face:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  background-color: black;
+  top: 47px;
+  left: 20px;
+}
+
+// Right vertical line
+.cat-face:after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  background-color: black;
+  top: 47px;
+  left: 70px;
+}
+
+// Clock Display with date and day
+.cat-clock-display {
+  width: 80%;
+  height: 90px; // Increased height to accommodate all elements
+  background-color: black;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  padding: 5px;
+}
+
+#cat-clock {
+  font-size: 24px;
+  margin-bottom: 7px;
+}
+
+#cat-date, #cat-day {
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+// Cat Legs - shorter, closer together
+.cat-leg {
+  width: 10px;
+  height: 25px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -25px;
+}
+
+// Left side legs
+.cat-leg.left.front {
+  left: 20px;
+}
+
+.cat-leg.left.back {
+  left: 45px;
+}
+
+// Right side legs
+.cat-leg.right.front {
+  right: 45px;
+}
+
+.cat-leg.right.back {
+  right: 20px;
+}
+
+// Cat Tail - longer and more animated
+.cat-tail {
+  width: 100px;
+  height: 20px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 20px;
+  right: -100px;
+  transform-origin: left center;
+  animation: tailWag 3s infinite ease-in-out;
+}
+
+@keyframes tailWag {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+
+// Walking animation - paws moving up and down
+// Walking animation - legs moving up and down with slight offsets
+.cat-walking .cat-leg.left.front {
+  animation: legWalk 0.8s infinite alternate;
+}
+
+.cat-walking .cat-leg.right.back {
+  animation: legWalk 0.8s infinite alternate;
+}
+
+.cat-walking .cat-leg.left.back {
+  animation: legWalk 0.8s infinite alternate-reverse;
+}
+
+.cat-walking .cat-leg.right.front {
+  animation: legWalk 0.8s infinite alternate-reverse;
+}
+
+@keyframes legWalk {
+  0% { height: 20px; }
+  100% { height: 30px; }
+}
+
+// Sleeping animation with improved details
+.cat-sleeping {
+  // Hide the nose
+  .cat-nose {
+    visibility: hidden;
+  }
+  
+  // Change eyes to sleeping style
+  .cat-eye.left, .cat-eye.right {
+    height: 3px;
+    width: 12px;
+    top: 35px;
+  }
+  
+  // Body slightly lower when sleeping
+  .cat-body {
+    transform: translateY(5px);
+  }
+  
+  // Front left leg tilted
+  .cat-leg.left.front {
+    transform: rotate(45deg);
+    transform-origin: top center;
+    bottom: -28px;
+    left: 15px;
+  }
+  
+  // Back left leg tilted
+  .cat-leg.left.back {
+    transform: rotate(45deg);
+    transform-origin: top center;
+    bottom: -28px;
+    left: 40px;
+  }
+  
+  // Front right leg tilted
+  .cat-leg.right.front {
+    transform: rotate(-45deg);
+    transform-origin: top center;
+    bottom: -28px;
+    right: 40px;
+  }
+  
+  // Back right leg tilted
+  .cat-leg.right.back {
+    transform: rotate(-45deg);
+    transform-origin: top center;
+    bottom: -28px;
+    right: 15px;
+  }
+  
+  // Sleep bubble with small Z
+  .cat-head:after {
+    content: 'z';
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 3px 6px;
+    z-index: 10;
+    animation: sleeping 3s infinite ease-in-out;
+  }
+  
+  // Sleep bubble with big Z
+  .cat-head:before {
+    content: 'Z';
+    position: absolute;
+    top: -40px;
+    left: 65px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 4px 8px;
+    z-index: 10;
+    animation: sleeping 3s infinite ease-in-out 0.5s;
+  }
+}
+
+@keyframes sleeping {
+  0% { 
+    opacity: 0; 
+    transform: translate(0, 0) scale(0.8); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translate(10px, -15px) scale(1); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translate(20px, -30px) scale(1.2); 
+  }
+}

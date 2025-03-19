@@ -1,0 +1,31 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header, .footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.header {
+  border-bottom: 2px solid white;
+}
+
+.footer {
+  border-top: 2px solid white;
+  position: absolute;
+  bottom: 0;
+}
