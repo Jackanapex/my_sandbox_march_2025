@@ -40,13 +40,13 @@ jobs:
           # Arbitrary string that will be added to the cache key of the bundler cache. Set or change it if you need  to invalidate the cache.
           cache-version: 0
           # The working directory to use for resolving paths for .ruby-version, .tool-versions and Gemfile.lock.
-          working-directory: ./weather-8bit-jekyll
+          working-directory: ./demo-jekyll-self-intro
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./weather-8bit-jekyll
+          source: ./demo-jekyll-self-intro
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
